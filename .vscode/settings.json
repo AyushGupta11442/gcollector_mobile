@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/ayush/Desktop/dev/gcollector_mobile/linux/flutter"
+    "cmake.sourceDirectory": "C:/Users/ayush/Desktop/dev/gcollector_mobile/linux/flutter",
+    "dart.flutterSdkPath": "C:\\flutter"
 }
