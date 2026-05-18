@@ -1,0 +1,325 @@
+main.dart
+
+Entry point of the app.
+
+ONLY:
+
+initialize app
+ProviderScope
+Firebase init
+runApp()
+
+Example:
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
+}
+
+Keep this file small.
+
+app.dart
+
+Global app configuration.
+
+Contains:
+
+MaterialApp
+themes
+routing
+localization
+
+Example:
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: appRouter,
+    );
+  }
+}
+core/
+
+Global reusable infrastructure.
+
+Things used across ENTIRE app.
+
+core/config/
+
+App configuration.
+
+Examples:
+
+env.dart
+app_config.dart
+
+Use for:
+
+API base URLs
+environment configs
+feature flags
+core/constants/
+
+App-wide constants.
+
+Examples:
+
+app_strings.dart
+api_constants.dart
+
+Example:
+
+class ApiConstants {
+  static const baseUrl = "https://api.example.com";
+}
+core/theme/
+
+Global themes.
+
+Examples:
+
+app_theme.dart
+colors.dart
+text_styles.dart
+core/network/
+
+Everything related to APIs.
+
+Examples:
+
+dio_client.dart
+auth_interceptor.dart
+
+Handles:
+
+Dio setup
+interceptors
+tokens
+retries
+core/storage/
+
+Local storage layer.
+
+Examples:
+
+secure_storage.dart
+isar_service.dart
+
+Use for:
+
+local DB
+token storage
+caching
+core/services/
+
+Global services.
+
+Examples:
+
+analytics_service.dart
+notification_service.dart
+core/utils/
+
+Helper functions.
+
+Examples:
+
+date_formatter.dart
+validators.dart
+core/widgets/
+
+Reusable widgets across app.
+
+Examples:
+
+custom_button.dart
+loading_indicator.dart
+features/
+
+MOST IMPORTANT folder.
+
+Everything business-related goes here.
+
+Each feature is isolated.
+
+Example:
+
+features/
+├── auth/
+├── home/
+├── profile/
+└── chat/
+
+Each feature should contain its:
+
+UI
+logic
+data
+providers
+Example feature
+features/auth/
+
+Contains everything related to authentication ONLY.
+
+presentation/
+
+UI layer.
+
+Contains:
+
+screens
+widgets
+Riverpod providers
+screens/
+
+Full pages.
+
+Examples:
+
+login_screen.dart
+signup_screen.dart
+widgets/
+
+Feature-specific widgets.
+
+Examples:
+
+login_form.dart
+social_login_button.dart
+providers/
+
+Riverpod state management.
+
+Examples:
+
+auth_provider.dart
+
+Example:
+
+final authProvider =
+    StateNotifierProvider<AuthNotifier, AuthState>(
+  (ref) => AuthNotifier(),
+);
+domain/
+
+Pure business logic.
+
+NO Flutter UI here.
+
+Contains:
+
+entities
+repository contracts
+use cases
+entities/
+
+Core models.
+
+Example:
+
+class UserEntity {
+  final String id;
+  final String email;
+}
+repositories/
+
+Abstract contracts.
+
+Example:
+
+abstract class AuthRepository {
+  Future<void> login();
+}
+usecases/
+
+Business actions.
+
+Example:
+
+login_usecase.dart
+data/
+
+Actual implementation.
+
+Handles:
+
+API calls
+DB calls
+model conversion
+datasource/
+
+Raw API/DB interaction.
+
+Examples:
+
+auth_remote_datasource.dart
+auth_local_datasource.dart
+models/
+
+JSON serializable models.
+
+Example:
+
+class UserModel {
+  factory UserModel.fromJson(Map<String, dynamic> json)
+}
+repositories/
+
+Implements domain repository.
+
+Example:
+
+class AuthRepositoryImpl implements AuthRepository
+shared/
+
+Things shared between multiple features.
+
+Examples:
+
+shared/widgets/
+shared/models/
+
+Use when:
+
+multiple features use same widget/model
+routes/
+
+All routing logic.
+
+Example:
+
+app_router.dart
+
+Using GoRouter:
+
+final appRouter = GoRouter(
+  routes: [],
+);
+Real development flow
+
+Suppose you're building login.
+
+You create:
+
+features/auth/
+
+Then:
+
+UI
+presentation/screens/login_screen.dart
+State management
+presentation/providers/auth_provider.dart
+Business logic
+domain/usecases/login_usecase.dart
+API logic
+data/datasource/auth_remote_datasource.dart
+Repository implementation
+data/repositories/auth_repository_impl.dart
