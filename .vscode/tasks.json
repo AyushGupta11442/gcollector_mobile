@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+
+  "tasks": [
+    {
+      "label": "Create Flutter Feature",
+
+      "type": "shell",
+
+      "command": "New-Item -ItemType Directory -Force -Path lib/features/${input:featureName}/data/datasource, lib/features/${input:featureName}/data/models, lib/features/${input:featureName}/data/repositories, lib/features/${input:featureName}/domain/entities, lib/features/${input:featureName}/domain/repositories, lib/features/${input:featureName}/domain/usecases, lib/features/${input:featureName}/presentation/screens, lib/features/${input:featureName}/presentation/widgets, lib/features/${input:featureName}/presentation/providers; New-Item -ItemType File -Force -Path lib/features/${input:featureName}/presentation/screens/${input:featureName}_screen.dart, lib/features/${input:featureName}/presentation/providers/${input:featureName}_provider.dart",
+
+      "problemMatcher": []
+    }
+  ],
+
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "featureName",
+      "description": "Enter feature name",
+      "default": "auth"
+    }
+  ]
+}
