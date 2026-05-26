@@ -11,25 +11,25 @@
 // ✅ dark mode
 // ✅ localization
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-import 'routes/app_router.dart';
+// import 'routes/app_router.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp.router(
+//       debugShowCheckedModeBanner: false,
 
-      title: 'GCollector',
+//       title: 'GCollector',
 
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+//       theme: ThemeData(
+//         useMaterial3: true,
+//       ),
 
-      routerConfig: appRouter,
-    );
-  }
-}
+//       routerConfig: appRouter,
+//     );
+//   }
+// }

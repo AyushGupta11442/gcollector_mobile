@@ -8,6 +8,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gcollector_mobile/features/landing_page/presentation/screens/landing_page_screen.dart';
 import 'package:hooks_riverpod/legacy.dart';
 
 void main() {
@@ -61,22 +62,9 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Riverpod Counter'),
       ),
-      body: Center(
-        child: Text(
-          '$counter',
-          style: const TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Update state
-          ref.read(counterProvider.notifier).state++;
-        },
-        child: const Icon(Icons.add),
-      ),
+      body: Scaffold(
+        body: LandingPageScreen(),
+      )
     );
   }
 }
