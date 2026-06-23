@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gcollector_mobile/core/theme/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -35,14 +36,7 @@ class OnboardingScreen extends StatelessWidget {
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF6A11CB),
-              Color(0xFF2575FC),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          gradient: AppTheme.primaryGradient, 
         ),
         child: SafeArea(
           child: Column(
@@ -55,18 +49,29 @@ class OnboardingScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "Welcome",
-                style: TextStyle(
-                  fontSize: 32,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+                "Turn Waste Into Wealth",
+                style: AppTheme.LandingPageTitle,
               ),
               const SizedBox(height: 12),
               const Text(
-                "This screen appears only once",
+                "Get instant cash for your recyclable scrap",
                 style: TextStyle(
                   color: Colors.white70,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                child: const Text(
+                  "Join our community of eco-conscious individuals and businesses, and start earning money while helping the environment.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
               const SizedBox(height: 40),
@@ -74,6 +79,7 @@ class OnboardingScreen extends StatelessWidget {
                 onPressed: () => _continue(context),
                 child: const Text("Get Started"),
               ),
+            
             ],
           ),
         ),

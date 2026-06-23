@@ -44,9 +44,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: seenOnboarding
-          ? const HomeScreen()
-          : const OnboardingScreen(),
+      home: const OnboardingScreen()
+      // home: seenOnboarding
+      //     ? const HomeScreen()
+      //     : const OnboardingScreen(),
     );
   }
 }

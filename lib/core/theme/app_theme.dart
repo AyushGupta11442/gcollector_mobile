@@ -36,6 +36,27 @@ class AppTheme {
     ),
   );
 
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [
+      Color(0xff00ba78),
+      Color(0xff00a741),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  static const TextStyle LandingPageTitle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+
+  static const TextStyle LandingPageNormalTxt = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: Colors.white,
+  );
+
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.black,
