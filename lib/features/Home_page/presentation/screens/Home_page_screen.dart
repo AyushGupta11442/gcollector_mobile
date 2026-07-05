@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gcollector_mobile/core/theme/app_theme.dart' show AppTheme;
 import 'package:gcollector_mobile/features/Home_page/presentation/widgets/welcome_txt.dart'
     show HomeViewPersonalInfo;
 
@@ -7,13 +8,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    
+    return Scaffold(
+      backgroundColor: AppTheme.lightTheme.scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
-          child: Column(children: [HomeViewPersonalInfo(PersonName: "Ayush")]),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: Column(children: [
+              HomeViewPersonalInfo(PersonName: "Ayush"),
+              
+              ]),
+          ),
         ),
-      ),
-    );
+      );
   }
 }
