@@ -2,18 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:gcollector_mobile/core/theme/app_theme.dart' show AppTheme;
 
 class HomeViewPersonalInfo extends StatelessWidget {
-  final String PersonName;
+  final String personName;
+  final double height;
+  final double width;
 
-  const HomeViewPersonalInfo({super.key, required this.PersonName});
+  const HomeViewPersonalInfo({
+  super.key,
+  required this.personName,
+  required this.height,
+  required this.width,
+
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: Colors.white,
       ),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 20),
       child: Column(
         children: [
           Padding(
@@ -34,7 +43,7 @@ class HomeViewPersonalInfo extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      PersonName,
+                      personName,
                       style: const TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
@@ -105,7 +114,7 @@ class YourEarningContainer extends StatelessWidget {
           ),
           const SizedBox(height: 8.0),
           const Text(
-            "\$1,234.56",
+            "\$1,234.56", 
             style: TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,

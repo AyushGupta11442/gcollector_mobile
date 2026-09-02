@@ -1,21 +1,18 @@
-
 import 'package:flutter/material.dart';
 
-
 class Responsive {
-  static double width(BuildContext context) {
-    return MediaQuery.of(context).size.width;
+  final double width;
+  final double height;
+
+  Responsive(BuildContext context)
+      : width = MediaQuery.sizeOf(context).width,
+        height = MediaQuery.sizeOf(context).height;
+
+  double wp(double percent) {
+    return width * percent;
   }
 
-  static double height(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  }
-
-  static double wp(BuildContext context, double percent) {
-    return width(context) * percent;
-  }
-
-  static double hp(BuildContext context, double percent) {
-    return height(context) * percent;
+  double hp(double percent) {
+    return height * percent;
   }
 }
